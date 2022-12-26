@@ -5,6 +5,4 @@ if git pull origin master | grep -q 'Already up to date'; then
 else
    cd /mnt/Test/dev/
    git diff origin/master
-   
-   
 fi
