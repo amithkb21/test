@@ -4,9 +4,11 @@
 if git pull origin master | grep -q 'Already up to date'; then
    	echo "NOTHING TO CHANGE"
 else
-	find /mnt/Test/dev -name "*.txt" -exec sed -i 's/DEV=LOCAL/DEV=DEV/g' {} \; && find /mnt/Test/testing -name "*.txt" -exec sed -i 's/TEST=LOCAL/TEST=TEST/g' {} \;
+	find /mnt/Test/dev -name "*.env" -exec sed -i 's/APP_ENV=LOCAL/APP_ENV=DEV/g' {} \;
+	find /mnt/Test/testing -name "*.env" -exec sed -i 's/s/APP_ENV=LOCAL/APP_ENV=TEST/g' {} \;
+	
 	cd /mnt/Test/dev/
-	git diff origin master
+	git diff origin/master
 fi
 
 
