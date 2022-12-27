@@ -7,7 +7,7 @@ commit_id=$(git log -n 1 --pretty=format:%H "$origin/$branch")
 echo $commit_id 
 git pull origin master 
 
-commit_old=$(git log -n 2 --pretty=format:%H "$origin/$branch")
+commit_old=$(git log -n 1 --pretty=format:%H "$origin/$branch")
 echo $commit_old
 
 if [ $commit_id == $commit_old ];
