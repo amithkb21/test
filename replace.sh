@@ -1,10 +1,14 @@
 #!/bin/bash
 
-git pull origin master
+origin="origin"
+branch="master"
+commit_id=$(git log -n 1 --pretty=format:%H "$origin/$branch")
 
-find /var/www/html/wl2/dev/ -name "*.env" -exec sed -i 's/APP_ENV=LOCAL/APP_ENV=DEV/g' {} \;
+echo $commit_id 
+git pull origin master 
 
-find /var/www/html/wl2/testing/ -name "*.env" -exec sed -i 's/APP_ENV=LOCAL/APP_ENV=TEST/g' {} \;
+commit_old=$(git log -n 2 --pretty=format:%H "$origin/$branch" | tail -1 )
+echo $commit_old
 
 
 
