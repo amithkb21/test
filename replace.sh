@@ -13,9 +13,9 @@ echo $commit_old
 if [ $commit_id == $commit_old ];
 
 then 
-	echo " No new commits "
+	echo " NO new commits "
 else
-	echo " new commit id found "
+	echo " new commit id is FOUND "
 
 fi
 
